@@ -35,10 +35,22 @@ Descripción: Medidas DAX útiles para calcular ventas por mes, acumuladas, año
 
 # 🔁 Ventas Año Anterior
 # Requiere tener una tabla calendario conectada por la columna 'fecha'
-
+#📌 Compara el valor actual con el mismo mes del año pasado.
 # DAX:
 # Ventas Año Anterior =
 # CALCULATE(
 #     [Total Ventas],
 #     SAMEPERIODLASTYEAR('Calendario'[Date])
 # )
+
+#🟩 C. Variacion Anual % (crecimiento año a año)
+#📌 Calcula el porcentaje de variación vs año anterior. Ideal para KPI o gráfico combinado.
+#Variacion Anual % = 
+#DIVIDE([TotalVentas] - [Ventas LY], [Ventas LY])
+
+#🟧 D. Ventas Acumuladas YTD (Year to Date)
+# 📌 Suma acumulada desde enero hasta la fecha seleccionada. Muy usada para dashboards financieros.
+#Ventas YTD = 
+# TOTALYTD([TotalVentas], Calendario[Date])
+
+

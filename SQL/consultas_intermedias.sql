@@ -51,3 +51,9 @@ SELECT p.categoria, AVG(v.precio_unitario) AS precio_promedio
 FROM ventas v
 JOIN productos p ON v.id_producto = p.id_producto
 GROUP BY p.categoria;
+
+--✅ Consulta SQL: Ventas asociadas a Medellín
+SELECT v.*
+FROM ventas v
+JOIN clientes c ON v.id_cliente=c.id_cliente
+WHERE c.ciudad = 'Medellin';
