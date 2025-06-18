@@ -6,6 +6,7 @@ Plantilla de consulta y exportación a Excel con tabla estructurada.
 # 📦 Librerías necesarias
 import mysql.connector
 import pandas as pd
+from datetime import datetime
 from openpyxl import load_workbook
 from openpyxl.worksheet.table import Table, TableStyleInfo
 
@@ -45,11 +46,15 @@ JOIN productos p ON v.id_producto = p.id_producto
 df = pd.read_sql(consulta, conexion)
 print(df.head())  # Muestra para verificación
 
-# 📤 4. Exportar a Excel
+# 4️⃣ Crear nombre dinámico con fecha
+fecha_hoy = datetime.now().strftime('%Y_%m_%d')
+nombre_archivo = f"entregas_{fecha_hoy}.xlsx"
+
+# 📤 5. Exportar a Excel
 archivo_excel = "ventas_limpias.xlsx"
 df.to_excel(archivo_excel, index=False)
 
-# ✅ 5. Crear tabla estructurada automáticamente (versión optimizada)
+# ✅ 6. Crear tabla estructurada automáticamente (versión optimizada)
 def convertir_a_tabla_excel(ruta_archivo, nombre_tabla):
     wb = load_workbook(ruta_archivo)
     ws = wb.active
