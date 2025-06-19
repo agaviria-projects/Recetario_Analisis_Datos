@@ -85,6 +85,13 @@ Ventas acumuladas por fecha (ideal para gráficos de línea)
 #     )
 # )
 
+"""
+✅ 1. Medida DAX: Total de entregas 
+Total Entregas = COUNTROWS(VentasTabla)
+📌 Esta medida cuenta cuántos registros hay (1 por pedido → 1 entrega).
+"""
+
+
 # CLAVE: Entender cómo usar tablas de hechos vs dimensiones en las visualizaciones
 #📦 Tabla de Hechos = métricas / cantidades / valores
 #→ Ejemplo: ventas[cantidad], ventas[precio_unitario], TotalVentas (DAX)
