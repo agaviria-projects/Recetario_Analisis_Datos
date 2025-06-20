@@ -107,3 +107,8 @@ Total Entregas = COUNTROWS(VentasTabla)
 
 #Regla de oro:✅ "Las dimensiones filtran o agrupan las métricas de la tabla de hechos."
 
+#   Elemento	                        Ubicación en visualización	        ¿Qué tipo de tabla es?	    ¿Por qué?
+# 🧠 Tabla de dimensión   
+# (cliente, producto, zona, fecha)	    EJE (o FILTRO/SLICER)	                DIMENSIÓN	            Son descripciones o categorías para agrupar
+# 📦 Tabla de hechos     
+# (envíos, ventas, cantidades)          VALOR (suma, conteo, promedio)      	HECHOS	                Son los números que se agregan

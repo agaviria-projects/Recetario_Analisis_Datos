@@ -4,7 +4,7 @@
 # - Permite usar funciones DAX de inteligencia de tiempo correctamente
 # - Puede expandirse con: DíaSemana, NombreDía, Trimestre, etc.
 
-#Calendario = 
+# Calendario = 
 # ADDCOLUMNS(
 #     CALENDAR(DATE(2024,1,1), DATE(2025,12,31)),
 #     "Año", YEAR([Date]),
