@@ -5,22 +5,31 @@ Archivo de consulta rápida para limpieza de datos con pandas
 
 import pandas as pd
 
-# 1. Cargar archivos Excel
+# Cargar archivos Excel
 archivo = "datos.xlsx"
 df = pd.read_excel(archivo, sheet_name="Hoja1")
 
-# 2. Ver primeros datos
+# Ver primeros datos
 print(df.head())
 
-# 3. Eliminar duplicados
+# Eliminar duplicados
 # Elimina filas duplicadas basadas en todas las columnas
 df.drop_duplicates(inplace=True)
+
+#Ver todo el dataframe
+print(df)
 
 # Elimina duplicados basados en una columna clave
 df.drop_duplicates(subset=["id"], inplace=True)
 
 # 4. Eliminar filas con valores nulos en una columna específica
 df.dropna(subset=["nombre"], inplace=True)
+
+#Elimina ID Duplicados y celdas donde esten Vacios Productos(NaN)
+df=df.dropna(subset=['ID','Producto']).drop_duplicates(subset=['ID'])
+
+#Pasar de mayusculas a minusculas
+df['Producto']=df['Producto'].str.lower()
 
 # 5. Rellenar valores nulos con texto o número
 df["nombre"] = df["nombre"].fillna("Sin nombre")
@@ -53,6 +62,13 @@ productos.dropna(inplace=True)
 # 12. Quitar espacios por si hay errores de digitación
 clientes["nombre_cliente"] = clientes["nombre_cliente"].str.strip()
 productos["categoria"] = productos["categoria"].str.strip()
+
+#13. Generar un ID
+df['ID']=range(1,len(df)+1)
+
+# 14. Reemplazar valos vacios NaN por un texto ejemplo "Por Validar"
+df["Zona"]=df["Zona"].fillna("Por validar")
+df["Producto"]=df["Producto"].fillna("Por validar")
 
 # Verificación rápida
 print("Ventas:")
